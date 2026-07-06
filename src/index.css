@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Cinzel", serif;
+  --font-cursive: "Pinyon Script", cursive;
+
+  --color-gold-50: #fbf8f1;
+  --color-gold-100: #f5eedc;
+  --color-gold-200: #eadbba;
+  --color-gold-300: #dac392;
+  --color-gold-400: #c6a76b;
+  --color-gold-500: #b38f4d;
+  --color-gold-600: #9e783c;
+  --color-gold-700: #836030;
+  --color-gold-800: #674a26;
+  --color-gold-900: #4e361c;
+  
+  --color-gold-metallic: #d4af37;
+  --color-gold-shimmer: #f3e5ab;
+  --color-cream: #faf8f5;
+  --color-champagne: #f4efe2;
+}
+
+/* Elegant gold gradient utility */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #b38f4d 0%, #eadbba 25%, #b38f4d 50%, #fbf8f1 75%, #9e783c 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 8s linear infinite;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #836030 0%, #b38f4d 30%, #eadbba 50%, #b38f4d 70%, #836030 100%);
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #b38f4d, #eadbba, #9e783c, #fbf8f1, #b38f4d) 1;
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Elegant double border frame */
+.double-gold-border {
+  position: relative;
+}
+.double-gold-border::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px solid rgba(179, 143, 77, 0.35);
+  pointer-events: none;
+  border-radius: 4px;
+}
+.double-gold-border::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  border: 1.5px solid rgba(179, 143, 77, 0.15);
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+/* Inner card line borders */
+.card-border-line {
+  border: 1px solid rgba(179, 143, 77, 0.2);
+}
+
+/* Subtly animated gold sparkles */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.15; }
+  50% { transform: translateY(-12px) rotate(8deg); opacity: 0.7; }
+}
+
+.sparkle {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Paper texture effect */
+.paper-texture {
+  background-color: #fcfbfa;
+  background-image: 
+    radial-gradient(rgba(179, 143, 77, 0.02) 1px, transparent 0),
+    radial-gradient(rgba(179, 143, 77, 0.01) 2px, transparent 0);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Soft gold ambient light */
+.gold-glow {
+  box-shadow: 0 0 30px rgba(179, 143, 77, 0.1);
+}
+
+.gold-glow-strong {
+  box-shadow: 0 0 40px rgba(179, 143, 77, 0.25);
+}
+
+/* Custom hide scrollbars but keep functional */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

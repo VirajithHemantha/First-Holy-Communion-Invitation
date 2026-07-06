@@ -1,0 +1,6 @@
+{
+  "name": "Ayaan's First Holy Communion",
+  "description": "An elegant, premium digital invitation for the First Holy Communion of Ayaan Franchesco Perera.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
