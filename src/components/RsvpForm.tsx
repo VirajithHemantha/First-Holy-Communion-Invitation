@@ -129,10 +129,12 @@ export default function RsvpForm() {
     <div id="rsvp-and-wishes-section" className="w-full max-w-2xl px-4 mt-20">
       
       {/* RSVP HEADER */}
-      <div className="text-center mb-8">
-        <span className="font-display text-xs uppercase tracking-[0.25em] text-stone-400">Share in Our Joy</span>
-        <h2 className="font-serif text-2xl md:text-3xl text-stone-800 font-semibold mt-1">Kindly Response (RSVP)</h2>
-        <p className="font-serif text-xs italic text-gold-600 mt-1">Please RSVP by 10 August 2026</p>
+      <div className="text-center mb-8 px-4">
+        <p className="font-serif text-lg md:text-xl text-stone-600 italic mb-6 max-w-xl mx-auto leading-relaxed">
+          Your presence will be a treasured blessing as we gather with family and friends to celebrate this sacred milestone.
+        </p>
+        <h2 className="font-serif text-3xl md:text-4xl text-stone-800 font-semibold mt-2">Kindly Respond (RSVP)</h2>
+        <p className="font-serif text-sm md:text-base italic text-gold-600 mt-2">before 10th August 2026</p>
         <div className="w-16 h-[1px] bg-gold-300 mx-auto mt-4" />
       </div>
 
@@ -149,7 +151,7 @@ export default function RsvpForm() {
             >
               {/* Full Name field */}
               <div className="space-y-2">
-                <label className="font-serif text-sm text-stone-700 font-medium block">
+                <label className="font-serif text-base md:text-lg text-stone-700 font-medium block">
                   Your Full Name <span className="text-gold-600">*</span>
                 </label>
                 <input
@@ -158,20 +160,20 @@ export default function RsvpForm() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Mr. & Mrs. Perera"
-                  className="w-full rounded-md border border-stone-300/70 bg-white/95 px-4 py-2.5 font-sans text-sm text-stone-800 placeholder-stone-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-colors"
+                  className="w-full rounded-md border border-stone-300/70 bg-white/95 px-4 py-3 font-sans text-base text-stone-800 placeholder-stone-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-colors"
                 />
               </div>
 
               {/* Attendance Selection */}
               <div className="space-y-2">
-                <label className="font-serif text-sm text-stone-700 font-medium block">
+                <label className="font-serif text-base md:text-lg text-stone-700 font-medium block">
                   Will you join us in Negombo? <span className="text-gold-600">*</span>
                 </label>
                 <div className="grid grid-cols-2 gap-4">
                   <button
                     type="button"
                     onClick={() => setStatus('attending')}
-                    className={`rounded-md border py-3 px-4 font-sans text-xs md:text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
+                    className={`rounded-md border py-4 px-4 font-sans text-sm md:text-base font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
                       status === 'attending'
                         ? 'border-gold-500 bg-gold-50 text-gold-700 font-bold'
                         : 'border-stone-300/70 bg-white text-stone-600 hover:bg-stone-50'
@@ -184,7 +186,7 @@ export default function RsvpForm() {
                   <button
                     type="button"
                     onClick={() => setStatus('declined')}
-                    className={`rounded-md border py-3 px-4 font-sans text-xs md:text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
+                    className={`rounded-md border py-4 px-4 font-sans text-sm md:text-base font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
                       status === 'declined'
                         ? 'border-gold-500 bg-gold-50 text-gold-700 font-bold'
                         : 'border-stone-300/70 bg-white text-stone-600 hover:bg-stone-50'
@@ -207,8 +209,8 @@ export default function RsvpForm() {
                 >
                   {/* Guests count */}
                   <div className="space-y-2">
-                    <label className="font-serif text-sm text-stone-700 font-medium flex items-center gap-2">
-                      <Users className="h-4 w-4 text-gold-500" />
+                    <label className="font-serif text-base md:text-lg text-stone-700 font-medium flex items-center gap-2">
+                      <Users className="h-5 w-5 text-gold-500" />
                       <span>Number of Guests Attending</span>
                     </label>
                     <div className="flex items-center gap-3">
@@ -217,7 +219,7 @@ export default function RsvpForm() {
                           key={num}
                           type="button"
                           onClick={() => setGuestsCount(num)}
-                          className={`h-9 w-9 rounded-full font-sans text-xs font-bold transition-all ${
+                          className={`h-11 w-11 rounded-full font-sans text-base font-bold transition-all ${
                             guestsCount === num
                               ? 'bg-gold-600 text-white shadow-sm shadow-gold-600/35'
                               : 'bg-white border border-stone-300 text-stone-600 hover:bg-stone-50'
@@ -232,7 +234,7 @@ export default function RsvpForm() {
                         max="20"
                         value={guestsCount}
                         onChange={(e) => setGuestsCount(Math.max(1, parseInt(e.target.value) || 1))}
-                        className="w-16 rounded-md border border-stone-300/70 bg-white px-3 py-1.5 text-center font-sans text-xs text-stone-800 placeholder-stone-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-colors"
+                        className="w-20 rounded-md border border-stone-300/70 bg-white px-3 py-2 text-center font-sans text-base text-stone-800 placeholder-stone-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-colors"
                         title="Custom Guest Count"
                       />
                     </div>
@@ -244,16 +246,16 @@ export default function RsvpForm() {
 
               {/* Congratulatory message / prayer */}
               <div className="space-y-2">
-                <label className="font-serif text-sm text-stone-700 font-medium flex items-center gap-2">
-                  <MessageSquare className="h-4 w-4 text-gold-500" />
+                <label className="font-serif text-base md:text-lg text-stone-700 font-medium flex items-center gap-2">
+                  <MessageSquare className="h-5 w-5 text-gold-500" />
                   <span>Send a Blessing or Message of Love for Ayaan (Optional)</span>
                 </label>
                 <textarea
-                  rows={3}
+                  rows={4}
                   value={prayerWish}
                   onChange={(e) => setPrayerWish(e.target.value)}
                   placeholder="Write a warm prayer, message, or blessing for Ayaan on his First Communion..."
-                  className="w-full rounded-md border border-stone-300/70 bg-white/95 px-4 py-2.5 font-sans text-sm text-stone-800 placeholder-stone-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-colors resize-none"
+                  className="w-full rounded-md border border-stone-300/70 bg-white/95 px-4 py-3 font-sans text-base text-stone-800 placeholder-stone-400 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-colors resize-none"
                 />
               </div>
 
@@ -261,7 +263,7 @@ export default function RsvpForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full rounded-md bg-gold-gradient hover:opacity-95 text-white font-sans text-xs uppercase tracking-[0.2em] font-semibold py-3.5 transition-opacity duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_12px_rgba(179,143,77,0.3)] disabled:opacity-50"
+                className="w-full rounded-md bg-gold-gradient hover:opacity-95 text-white font-sans text-sm md:text-base uppercase tracking-[0.2em] font-semibold py-4 transition-opacity duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_12px_rgba(179,143,77,0.3)] disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
@@ -295,9 +297,9 @@ export default function RsvpForm() {
                 Your response has been treasured.
               </p>
 
-              <p className="font-sans text-xs text-stone-500 mt-4 max-w-sm leading-relaxed">
+              <p className="font-sans text-sm md:text-base text-stone-500 mt-4 max-w-md leading-relaxed">
                 {status === 'attending' 
-                  ? `We are so delighted that you will join us for Ayaan's First Holy Communion on 29 August 2026. Your presence is a true blessing!`
+                  ? `We are so delighted that you will join us for Ayaan's First Holy Communion on 29th of August 2026. Your presence is a true blessing!`
                   : `We are sorry you won't be able to celebrate with us in person, but we truly appreciate your lovely blessings and prayers for Ayaan.`}
               </p>
 

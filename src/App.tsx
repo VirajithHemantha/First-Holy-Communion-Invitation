@@ -88,12 +88,9 @@ export default function App() {
                 transition={{ duration: 1.5, delay: 0.2 }}
                 className="max-w-2xl flex flex-col items-center z-10"
               >
-                <span className="font-display text-[10px] uppercase tracking-[0.3em] text-gold-600 font-bold mb-3">
-                  Sacred Family Invitation
-                </span>
                 
                 <h1 className="font-serif text-3xl md:text-5xl font-light text-stone-900 tracking-[0.1em] leading-tight">
-                  The First Holy Communion
+                  First Holy Communion
                 </h1>
                 
                 <p className="font-serif italic text-base text-stone-500 mt-2">
@@ -101,13 +98,13 @@ export default function App() {
                 </p>
                 
                 <h2 className="font-cursive text-5xl md:text-7xl text-gold-600 py-4 tracking-wide">
-                  Ayaan Franchesco Perera
+                  Ayaan Franchesco
                 </h2>
 
                 <div className="w-12 h-[1px] bg-gold-300 my-4" />
                 
                 <p className="font-sans text-xs uppercase tracking-[0.18em] text-stone-400 font-semibold mb-2">
-                  August 29, 2026 • Negombo
+                  29th of August 2026
                 </p>
               </motion.div>
             </section>
@@ -140,7 +137,7 @@ export default function App() {
                 </h3>
 
                 <p className="font-sans text-xs text-stone-500 leading-relaxed max-w-sm mx-auto">
-                  Thank you for keeping Ayaan Franchesco Perera in your loving prayers as he embarks on this holy and lifelong path of faith.
+                  Thank you for keeping Ayaan Franchesco in your loving prayers as he embarks on this holy and lifelong path of faith.
                 </p>
 
                 <div className="pt-4 border-t border-stone-800/80 max-w-xs mx-auto">

@@ -43,10 +43,10 @@ export default function Envelope({ onOpen }: EnvelopeProps) {
           transition={{ duration: 1, delay: 0.8 }}
         >
           <h1 className="font-display text-[10px] md:text-xs uppercase tracking-[0.4em] text-gold-300 mb-4 opacity-80 font-medium">
-            First Holy Communion Invitation
+            First of comminunion of 
           </h1>
           <h2 className="font-cursive text-5xl md:text-6xl lg:text-7xl text-gold-100 mb-12 tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Ayaan Franchesco Perera
+            Ayaan Franchesco
           </h2>
         </motion.div>
 
@@ -76,6 +76,13 @@ export default function Envelope({ onOpen }: EnvelopeProps) {
           <div className="absolute top-2 right-2 w-8 h-8 border-t border-r border-gold-400/40 opacity-70 z-10" />
           <div className="absolute bottom-2 left-2 w-8 h-8 border-b border-l border-gold-400/40 opacity-70 z-10" />
           <div className="absolute bottom-2 right-2 w-8 h-8 border-b border-r border-gold-400/40 opacity-70 z-10" />
+
+          {/* Text on envelope */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+            <span className="font-display text-[11px] md:text-xs uppercase tracking-[0.5em] text-stone-500/80 font-bold">
+              Invitation
+            </span>
+          </div>
 
           {/* Wax Seal / Open Button */}
           <motion.button

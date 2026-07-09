@@ -179,7 +179,7 @@ export default function InvitationCard({ onRsvpClick }: InvitationCardProps) {
                 <div className="relative w-full h-full rounded-[105px] overflow-hidden">
                   <img
                     src={photo}
-                    alt="Ayaan Franchesco Perera"
+                    alt="Ayaan Franchesco"
                     className="w-full h-full object-cover rounded-[105px] transition-transform duration-1000 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 backdrop-blur-sm rounded-[105px]">
@@ -216,7 +216,7 @@ export default function InvitationCard({ onRsvpClick }: InvitationCardProps) {
               By the grace of God,
             </p>
             <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.35em] text-stone-500 font-medium">
-              We joyfully invite you to celebrate the
+              We are delighted to invite you to celebrate the
             </p>
             
             <div className="relative py-4 flex justify-center w-full">
@@ -226,15 +226,15 @@ export default function InvitationCard({ onRsvpClick }: InvitationCardProps) {
             </div>
             
             <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.35em] text-stone-500 font-medium">
-              of our beloved son
+              of our beloved son,
             </p>
 
             <h1 className="font-cursive text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[7rem] text-gold-600 py-6 px-2 tracking-wide drop-shadow-[0_2px_4px_rgba(179,143,77,0.15)] leading-[1.2]">
-              Ayaan Franchesco Perera
+              Ayaan Franchesco
             </h1>
 
             <p className="font-serif italic text-lg md:text-xl text-stone-600 max-w-sm mx-auto leading-relaxed">
-              as he receives the Holy Eucharist for the very first time.
+              as he received the Holy Eucharist for the first time.
             </p>
           </div>
 
@@ -248,12 +248,16 @@ export default function InvitationCard({ onRsvpClick }: InvitationCardProps) {
           </div>
 
           {/* Date, Time & Venue Block - Refined Typography */}
+          <p className="font-serif text-xl md:text-2xl text-stone-600 italic mt-12 mb-8 text-center relative z-10">
+            Please join us;
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-2xl mx-auto text-center md:text-left relative z-10 px-4">
             <div className="flex flex-col items-center md:items-end md:pr-14 md:border-r border-gold-300/40 relative">
               <span className="font-display text-[11px] uppercase tracking-[0.4em] text-gold-700 font-bold mb-4 block">When</span>
               <p className="font-serif text-2xl md:text-3xl text-stone-900 mb-1">Saturday</p>
               <p className="font-display text-3xl md:text-4xl text-gold-600 my-2 font-medium tracking-[0.15em] drop-shadow-sm">29 . 08 . 26</p>
-              <p className="font-serif text-xl text-stone-600/90 italic mt-2">Reception at 6:30 PM</p>
+              <span className="font-display text-[11px] uppercase tracking-[0.4em] text-gold-700 font-bold mt-8 mb-3 block">What Time</span>
+              <p className="font-serif text-xl text-stone-600/90 italic">At 06.30 PM</p>
             </div>
 
             <div className="flex flex-col items-center md:items-start md:pl-14">
@@ -268,8 +272,8 @@ export default function InvitationCard({ onRsvpClick }: InvitationCardProps) {
 
           {/* Host Signatures */}
           <div className="mt-24 mb-6 relative z-10">
-            <p className="font-display text-[10px] uppercase tracking-[0.4em] text-stone-400 mb-5">With love and blessings</p>
-            <p className="font-serif text-stone-800 text-2xl md:text-3xl italic tracking-wide">
+            <p className="font-display text-[10px] uppercase tracking-[0.4em] text-stone-400 mb-5">With Love & Blessings</p>
+            <p className="font-serif text-stone-800 text-lg sm:text-xl md:text-3xl italic tracking-wide whitespace-nowrap">
               Gayan Perera & Irani Jayamanna
             </p>
           </div>
