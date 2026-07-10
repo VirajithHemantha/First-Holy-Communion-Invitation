@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-800 flex flex-col font-sans select-none selection:bg-gold-100 selection:text-gold-900 overflow-x-hidden">
-      
+
       {/* Background Audio Player (synthesized client-side) */}
       <AudioPlayer autoPlayTrigger={autoPlayAudio} />
 
@@ -52,7 +52,7 @@ export default function App() {
               <div className="flex items-center gap-2">
                 <span className="font-display text-xs tracking-widest text-gold-600 font-bold">† A.F.P</span>
               </div>
-              
+
               <nav className="flex items-center gap-6 font-display text-[10px] md:text-xs uppercase tracking-widest font-semibold text-stone-500">
                 <button
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -81,37 +81,37 @@ export default function App() {
               {/* Floral corner decor */}
               <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-gold-300/20 m-6 rounded-tl-lg" />
               <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-gold-300/20 m-6 rounded-tr-lg" />
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
                 className="max-w-2xl flex flex-col items-center z-10"
               >
-                
+
                 <h1 className="font-serif text-3xl md:text-5xl font-light text-stone-900 tracking-[0.1em] leading-tight">
                   First Holy Communion
                 </h1>
-                
+
                 <p className="font-serif italic text-base text-stone-500 mt-2">
                   of
                 </p>
-                
+
                 <h2 className="font-cursive text-5xl md:text-7xl text-gold-600 py-4 tracking-wide">
                   Ayaan Franchesco
                 </h2>
 
                 <div className="w-12 h-[1px] bg-gold-300 my-4" />
-                
-                <p className="font-sans text-xs uppercase tracking-[0.18em] text-stone-400 font-semibold mb-2">
-                  29th of August 2026
+
+                <p className="font-sans text-sm md:text-base uppercase tracking-[0.18em] text-stone-400 font-semibold mb-2">
+                  29 August 2026
                 </p>
               </motion.div>
             </section>
 
             {/* INVITATION CONTENT MODULES */}
             <main className="w-full max-w-4xl px-4 py-12 flex flex-col items-center gap-16">
-              
+
               {/* Detailed Invitation Card */}
               <InvitationCard onRsvpClick={() => scrollToSection('rsvp-and-wishes-section')} />
 
@@ -123,7 +123,7 @@ export default function App() {
             {/* TRADITIONAL SACRAMENTAL FOOTER */}
             <footer className="w-full bg-[#181615] text-[#eadbba] py-16 px-6 text-center relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
-              
+
               <div className="max-w-md mx-auto space-y-6">
                 {/* Traditional cross vector */}
                 <div className="text-gold-500 flex justify-center">

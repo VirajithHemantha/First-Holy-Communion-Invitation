@@ -42,8 +42,8 @@ export default function Envelope({ onOpen }: EnvelopeProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}
         >
-          <h1 className="font-display text-[10px] md:text-xs uppercase tracking-[0.4em] text-gold-300 mb-4 opacity-80 font-medium">
-            First of comminunion of 
+          <h1 className="text-sm md:text-base uppercase tracking-[0.4em] mt-12 md:mt-0 text-white mb-4 font-bold scale-y-110 transform origin-bottom inline-block" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
+            First Holy Communion of 
           </h1>
           <h2 className="font-cursive text-5xl md:text-6xl lg:text-7xl text-gold-100 mb-12 tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Ayaan Franchesco
