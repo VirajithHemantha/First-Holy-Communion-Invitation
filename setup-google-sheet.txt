@@ -1,0 +1,61 @@
+// INSTRUCTIONS:
+// 1. Open your Google Sheet: https://docs.google.com/spreadsheets/d/1SYp2qxqcfIwe8J6YqJ9HZ2Z6K1L2mDKpN3wY6UqGD4E/edit
+// 2. Click on "Extensions" in the top menu, then select "Apps Script"
+// 3. Delete any code in the editor and paste ALL the code below
+// 4. Click the "Save" icon (floppy disk)
+// 5. Click "Deploy" at the top right, then "New deployment"
+// 6. Click the gear icon next to "Select type" and choose "Web app"
+// 7. Under "Execute as", select "Me"
+// 8. Under "Who has access", select "Anyone"
+// 9. Click "Deploy" (you may need to authorize the script)
+// 10. Copy the "Web app URL" and paste it into src/components/RsvpForm.tsx (line 114)
+
+const SHEET_NAME = 'Sheet1'; // Make sure this matches your sheet tab name!
+
+function doPost(e) {
+  const lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+  
+  try {
+    const doc = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = doc.getSheetByName(SHEET_NAME);
+    
+    // Add headers if sheet is empty
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(['Timestamp', 'Name', 'Status', 'Guests Count', 'Prayer/Wish']);
+    }
+    
+    const data = JSON.parse(e.postData.contents);
+    
+    // Append the row
+    sheet.appendRow([
+      data.timestamp || new Date().toISOString(),
+      data.name,
+      data.status,
+      data.guestsCount,
+      data.prayerWish || ''
+    ]);
+    
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': sheet.getLastRow() }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+// Handle CORS preflight requests
+function doOptions(e) {
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type'
+  };
+  return ContentService.createTextOutput("")
+    .setMimeType(ContentService.MimeType.TEXT);
+}

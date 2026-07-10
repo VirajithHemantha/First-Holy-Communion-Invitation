@@ -7,55 +7,7 @@ interface InvitationCardProps {
 }
 
 export default function InvitationCard({ onRsvpClick }: InvitationCardProps) {
-  const [photo, setPhoto] = useState<string | null>(null);
 
-  useEffect(() => {
-    const savedPhoto = localStorage.getItem('ayaan_communion_photo');
-    if (savedPhoto) {
-      setPhoto(savedPhoto);
-      return;
-    }
-
-    const testImage = (url: string) => {
-      return new Promise<boolean>((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-      });
-    };
-
-    const findImage = async () => {
-      const paths = ['/ayaan.jpg', '/ayaan.png', '/ayaan.jpeg', '/ayaan.webp'];
-      for (const path of paths) {
-        const exists = await testImage(path);
-        if (exists) {
-          setPhoto(path);
-          break;
-        }
-      }
-    };
-
-    findImage();
-  }, []);
-
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result as string;
-        setPhoto(base64String);
-        localStorage.setItem('ayaan_communion_photo', base64String);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleRemovePhoto = () => {
-    setPhoto(null);
-    localStorage.removeItem('ayaan_communion_photo');
-  };
 
   const targetDate = new Date('2026-08-29T18:30:00');
   const [timeLeft, setTimeLeft] = useState({
@@ -175,38 +127,13 @@ export default function InvitationCard({ onRsvpClick }: InvitationCardProps) {
             
             <div className="relative group w-56 h-[320px] md:w-[300px] md:h-[420px] rounded-[120px] border-[3px] border-gold-200 p-2.5 bg-white shadow-[0_15px_50px_-10px_rgba(179,143,77,0.25)] transition-all duration-700 hover:shadow-[0_25px_60px_-10px_rgba(179,143,77,0.35)] hover:-translate-y-2">
               <div className="absolute -inset-2 border border-gold-300/30 rounded-[130px] pointer-events-none" />
-              {photo ? (
-                <div className="relative w-full h-full rounded-[105px] overflow-hidden">
-                  <img
-                    src={photo}
-                    alt="Ayaan Franchesco"
-                    className="w-full h-full object-cover rounded-[105px] transition-transform duration-1000 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 backdrop-blur-sm rounded-[105px]">
-                    <label className="cursor-pointer bg-white/95 text-stone-800 rounded-full px-5 py-2.5 shadow-xl hover:bg-gold-50 hover:text-gold-700 transition-all text-xs font-sans font-medium flex items-center gap-2">
-                      <Camera className="h-4 w-4" /> Change Portrait
-                      <input type="file" accept="image/*" className="hidden" onChange={handlePhotoUpload} />
-                    </label>
-                    <button
-                      onClick={handleRemovePhoto}
-                      className="bg-red-500/95 text-white rounded-full px-5 py-2.5 shadow-xl hover:bg-red-600 transition-all text-xs font-sans font-medium flex items-center gap-2"
-                    >
-                      <Trash2 className="h-4 w-4" /> Remove
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div className="relative w-full h-full rounded-[105px] bg-gold-50/70 flex flex-col items-center justify-center p-6 text-center border-[1.5px] border-dashed border-gold-300/50 hover:bg-gold-50 transition-colors">
-                  <Camera className="w-10 h-10 text-gold-400/70 mb-4" />
-                  <span className="font-display text-[11px] uppercase tracking-[0.25em] text-gold-700 font-semibold block mb-2">Upload Portrait</span>
-                  <span className="font-sans text-[10px] text-stone-400 max-w-[120px] leading-relaxed block">
-                    Click to add Ayaan's beautiful photo here
-                  </span>
-                  <label className="absolute inset-0 cursor-pointer flex items-center justify-center">
-                    <input type="file" accept="image/*" className="hidden" onChange={handlePhotoUpload} />
-                  </label>
-                </div>
-              )}
+              <div className="relative w-full h-full rounded-[105px] overflow-hidden">
+                <img
+                  src="/ayaan.jpeg"
+                  alt="Ayaan Franchesco"
+                  className="w-full h-full object-cover rounded-[105px] transition-transform duration-1000 group-hover:scale-110"
+                />
+              </div>
             </div>
           </div>
 

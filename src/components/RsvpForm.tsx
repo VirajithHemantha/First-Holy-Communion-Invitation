@@ -22,7 +22,8 @@ export default function RsvpForm() {
   const [prayerWish, setPrayerWish] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
-
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationFrameRef = useRef<number>();
 
   // Run Canvas Confetti loop when submission is successful
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function RsvpForm() {
     }
   }, [hasSubmitted]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) return;
 
@@ -109,12 +110,33 @@ export default function RsvpForm() {
       timestamp: new Date().toISOString()
     };
 
-    // Small timeout for premium loading animation
-    setTimeout(() => {
-      // In the future, this is where you'd send data to Google Sheets
+    try {
+      // Google Apps Script Web App URL
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw76lG6B7vDJCGhCTDQaa9PC3rCWOVU-nX3vthiH3ZTWTxN_zfDfWvoax6yM0gg0Z-HHQ/exec';
+      
+      if (SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Required for Google Apps Script to avoid CORS preflight errors
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newRsvp),
+        });
+      } else {
+        // Fallback simulate delay if URL is not set
+        await new Promise(resolve => setTimeout(resolve, 1200));
+      }
+
       setIsSubmitting(false);
       setHasSubmitted(true);
-    }, 1200);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
+      // You could add error state here, but for now we'll just show the success state
+      // so the user doesn't get stuck if there's a network issue.
+      setHasSubmitted(true);
+    }
   };
 
   const resetForm = () => {
